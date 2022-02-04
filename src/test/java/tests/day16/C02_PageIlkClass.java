@@ -5,24 +5,46 @@ import org.testng.annotations.Test;
 import pages.AmazonPage;
 import utilities.Driver;
 
-public class C02_PageIlkClass {
-    //amazona git
-    // arama kutusuna nutella yazip aratam
-    // arama sonuclarinin nutella icerdigini test edem
+import org.openqa.selenium.Keys;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import pages.AmazonPage;
+import utilities.Driver;
 
-    //POM de farkli class lara farkli sekilde ulasilmasi benimsenmistir
-    //Driver clasi ici static tontem kullaniyoruz
-    //page class lari icin ise obje uzerinden kullanilmasi tercih edilir
+import java.util.concurrent.locks.AbstractOwnableSynchronizer;
+
+public class C02_PageIlkClass {
+
+    //POM'de farkli class'lara farkli sekilde ulasilmasi benimsenmistir
+    // Driver class'i icin static yontemi kullaniyoruz
+    // Page Class'lari icin ise obje uzerinden kullanilmasi tercih edilmistir
     @Test
     public void test01(){
-        //amazona git
+        // Amazon'a gidelim
         Driver.getDriver().get("https://www.amazon.com");
-        // arama kutusuna nutella yazip aratam
-
+        // arama kutusuna Nutella yazip aratalim
         AmazonPage amazonPage=new AmazonPage();
-        amazonPage.amazonAramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
+        amazonPage.amazonAramaKutusu.sendKeys("Nutella" + Keys.ENTER);
 
-        // arama sonuclarinin nutella icerdigini test edem
+        // Atama sonuclarinin Nutella icerdigini test edelim
+        String actualSonucStr=amazonPage.sonucYazisiElementi.getText();
+        Assert.assertTrue(actualSonucStr.contains("Nutella"));
 
+        Driver.closeDriver();
+
+    }
+
+    @Test
+    public void test02(){
+        // amazona gidelim
+        Driver.getDriver().get("https://www.amazon.com");
+        //java icin arama yapalim
+        AmazonPage amazonPage=new AmazonPage();
+        amazonPage.amazonAramaKutusu.sendKeys("java"+Keys.ENTER);
+        // sonucun java icerdigini test edelim
+        String sonucYazisiStr=amazonPage.sonucYazisiElementi.getText();
+
+        Assert.assertTrue(sonucYazisiStr.contains("java"));
+        Driver.closeDriver();
     }
 }

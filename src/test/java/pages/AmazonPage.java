@@ -7,15 +7,20 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class AmazonPage {
-   // bir page classi actigimizda ilk yapmamiz gereken sey
-   // paramertresiz bir constructor olusturup
-   // bu constructor icinde pageFactory ile driver a ilk deger atamasi yapilir
+    // Bir page class'i actigimizda ilk yapmamiz gereken sey
+    // parametresiz bir constructor olusturup
+    // bu constructor icinde PageFactory ile driver'a ilk deger atamasini yapmak olmalidir
 
-   public AmazonPage(){
-       PageFactory.initElements(Driver.getDriver(),this);
-   }
-   @FindBy(id="twotabsearchtextbox")
+    public AmazonPage(){
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
+
+    @FindBy(id="twotabsearchtextbox")
     public WebElement amazonAramaKutusu;
+
+    @FindBy(xpath = "//div[@class='a-section a-spacing-small a-spacing-top-small']")
+    public WebElement sonucYazisiElementi;
+
 
 
 

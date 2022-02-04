@@ -10,6 +10,8 @@ public class FacebookPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(xpath = "//button[@title='Allow All Cookies']")
+    public WebElement facebookCookies;
 
 
     @FindBy(name="email")
@@ -20,6 +22,11 @@ public class FacebookPage {
 
     @FindBy(name="login")
     public WebElement loginButonu;
-    }
 
+    @FindBy(className = "_9ay7")
+    public WebElement girilemediYazisiElemnti;
+
+
+
+}
 
