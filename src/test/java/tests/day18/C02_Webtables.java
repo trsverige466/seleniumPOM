@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.HMCWebTablePage;
 import pages.HotelMyCampPage;
+import utilities.Driver;
+
 import java.util.List;
 public class C02_Webtables {
     HotelMyCampPage hotelMyCampPage;
@@ -56,5 +58,6 @@ public class C02_Webtables {
         }
         //          ○ 4.satirdaki(row) elementleri konsolda yazdırın.
         System.out.println("4.satir : "+satirlarWebelementListesi.get(3).getText());
+
     }
 }
