@@ -24,6 +24,7 @@ public class C03_FacebookLogin {
         facebookPage.loginButonu.click();
 
         //4- Basarili giris yapilamadigini test edin
+        //4- Basarili giris yapilamadigini test edin
 
         Assert.assertTrue(facebookPage.girilemediYazisiElemnti.isDisplayed());
 
